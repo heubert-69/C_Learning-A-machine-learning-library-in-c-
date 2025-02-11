@@ -83,7 +83,7 @@ Matrix *PredictBernoulliNB(BernoulliNaiveBayes *model, Matrix *X)
 {
 	Matrix *predictions = CreateMatrix(X->rows, 1);
 	for(int i=0; i < X->rows; i++){
-		predictions->data[i][0]->PredictBernoulliNB(model, model->data[i]);
+		predictions->data[i][0] = PredictBernoulliNB(model, model->data[i]);
 	}
 	return predictions;
 }
