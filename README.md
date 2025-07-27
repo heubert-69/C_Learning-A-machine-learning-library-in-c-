@@ -103,6 +103,7 @@ BayesianGaussianMixture
 
 🗂️ Directory Structure
 
+```pgsql
 mlc/
 ├── models/
 │   ├── linear/                # Linear models
@@ -118,47 +119,46 @@ mlc/
 ├── utils/                     # Distance metrics, sampling, etc.
 ├── include/                   # Shared headers
 └── main.c                     # Example usage
-
+```
 
 
 
 🚀 How to Use
 
 1. Include Headers
-
+```bash
 #include "matrix/matrix.h"
 #include "models/linear/linear_regression.h"
 #include "models/ensemble/random_forest.h"
 #include "models/cluster/kmeans.h"
-
+```
 2. Create a Model
-
+```bash
 LinearRegression *lr = create_linear_regression();
 RandomForestClassifier *rf = create_random_forest(10, max_depth);
 KMeans *kmeans = create_kmeans(n_clusters, n_features);
-
+```
 3. Train the Model
-
+```bash
 train_linear_regression(lr, X_train, y_train);
 train_random_forest_classifier(rf, X_train, y_train);
 train_kmeans(kmeans, X_train, n_iters);
-
+```
 4. Make Predictions
-
+```bash
 double prediction = predict_linear_regression(lr, X_test, i);
 int label = predict_random_forest_classifier(rf, X_test, i);
 int cluster = predict_kmeans(kmeans, X_test, i);
+```
 
 5. Free Memory
-
+```bash
 free_linear_regression(lr);
 free_random_forest_classifier(rf);
 free_kmeans(kmeans);
 free_matrix(X_train);
 free_matrix(y_train);
-
-
-
+```
 
 🛠️ Requirements
 
@@ -168,12 +168,8 @@ Standard C99+
 
 Your custom matrix.h library with basic matrix operations (create, destroy, get, set, transpose, dot)
 
-
-
-
-
 🧪 Example: Linear Regression
-
+```cpp
 #include "matrix/matrix.h"
 #include "models/linear/linear_regression.h"
 
@@ -192,20 +188,7 @@ int main() {
     free_matrix(y);
     return 0;
 }
-
-
-
-
-🧩 Extending the Library
-
-You can easily extend this library by:
-
-Adding new models (models/)
-
-Implementing different distance metrics (utils/distance.h)
-
-Using your matrix operations for efficient computation
-
+```
 
 
 📚 Documentation
@@ -217,9 +200,3 @@ A .h file with the struct and function prototypes
 A .c file with full implementation
 
 Comments for each method
-
-
-
-📌 License
-
-MIT License
